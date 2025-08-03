@@ -38,8 +38,8 @@ class RothConversionAnalyzer:
         self.ss_annual_benefit = 36_000
         
         # Economic assumptions
-        self.inflation_rate = 0.04
-        self.market_return = 0.03
+        self.inflation_rate = 0.03
+        self.market_return = 0.06
         
         # Tax brackets (2025 single filer, assuming similar for 2026+)
         self.standard_deduction = 15_000  # Estimated for 2025+
