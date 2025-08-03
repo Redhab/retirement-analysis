@@ -1,7 +1,7 @@
 [project]
 name = "retirement-analysis"
-version = "0.1.0"
-description = "Retirement withdrawal strategy analysis tool"
+version = "0.2.0"
+description = "Comprehensive retirement withdrawal strategy analysis with Monte Carlo simulations"
 readme = "README.md"
 authors = [
     {name = "Redha", email = "redhab@gmail.com"}
@@ -30,6 +30,7 @@ packages = ["src/retirement_analysis"]
 
 [project.scripts]
 retirement-analysis = "retirement_analysis.main:main"
+monte-carlo-analysis = "retirement_analysis.monte_carlo_simulation:main"
 
 [tool.black]
 line-length = 88

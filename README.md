@@ -307,6 +307,86 @@ retirement-analysis/
 └── .python-version  # Python version specification
 ```
 
+## Monte Carlo Analysis
+
+The project now includes comprehensive Monte Carlo simulations to test strategy robustness under market volatility.
+
+### Running Monte Carlo Analysis
+
+```bash
+# Run Monte Carlo analysis
+uv run monte-carlo-analysis
+
+# Run combined analysis (both deterministic and Monte Carlo)
+uv run python src/retirement_analysis/combined_analysis.py
+```
+
+
+### Monte Carlo Features
+
+- **1000+ simulations** across multiple market scenarios
+- **5 market scenarios**: Base case, low return, high volatility, stagflation, great recession
+- **Comprehensive risk analysis**: Sequence of returns risk, asset shortfall probability
+- **Advanced visualizations**: 9-panel dashboard with statistical distributions
+
+### Market Scenarios Tested
+
+- **Base Case**: 6% return, 18% volatility
+- **Low Return**: 4% return, 18% volatility  
+- **High Volatility**: 6% return, 25% volatility
+- **Stagflation**: 3% return, 22% volatility
+- **Great Recession**: 2% return, 30% volatility
+```
+
+## Step 6: Commands to Execute
+
+```bash
+# Navigate to your project
+cd retirement-analysis
+
+# Add the Monte Carlo script to the correct location
+# (Copy monte_carlo_simulation.py to src/retirement_analysis/)
+
+# Update pyproject.toml with the new configuration
+
+# Install/sync the updated project
+uv sync
+
+# Test that everything works
+uv run retirement-analysis          # Original strategy
+uv run monte-carlo-analysis         # Monte Carlo simulations
+uv run basic-strategy              # If you kept the old main.py
+
+# Run tests
+uv run pytest
+```
+
+## Final Project Structure
+
+```
+retirement-analysis/
+├── src/
+│   └── retirement_analysis/
+│       ├── __init__.py
+│       ├── main.py                          # Original strategy (if kept)
+│       ├── roth_conversion_strategy.py      # Clean standalone strategy
+│       ├── monte_carlo_simulation.py        # New Monte Carlo analysis
+│       └── combined_analysis.py             # Optional: runs both analyses
+├── tests/
+│   ├── __init__.py
+│   ├── test_main.py
+│   └── test_monte_carlo.py                  # New Monte Carlo tests
+├── output/                                  # Generated reports and charts
+│   ├── roth_conversion_analysis.png
+│   ├── monte_carlo_comprehensive_analysis.png
+│   ├── monte_carlo_summary.csv
+│   └── monte_carlo_detailed_*.csv
+├── pyproject.toml                           # Updated with new entry points
+├── README.md                                # Updated with Monte Carlo info
+└── .python-version
+```
+
+This integration gives you a comprehensive retirement analysis suite with both deterministic and probabilistic modeling!
 ## Future Enhancements
 
 - [ ] Investment growth modeling (4-7% annual returns)
