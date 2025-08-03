@@ -1,0 +1,47 @@
+[project]
+name = "retirement-analysis"
+version = "0.1.0"
+description = "Retirement withdrawal strategy analysis tool"
+readme = "README.md"
+authors = [
+    {name = "Redha", email = "redhab@gmail.com"}
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.3.1",
+    "numpy>=2.3.2",
+    "matplotlib>=3.10.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.0",
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Fix: Tell Hatchling where to find the package
+[tool.hatch.build.targets.wheel]
+packages = ["src/retirement_analysis"]
+
+[project.scripts]
+retirement-analysis = "retirement_analysis.main:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+    "pytest>=8.4.1",
+]
