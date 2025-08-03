@@ -49,5 +49,3 @@ Thumbs.db
 
 # Project specific
 output/
-*.png
-*.csv
